@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 驼峰命名 -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	<!-- 别名 只要指定包名即可，之后程序会为包下的所有类都自动加上别名，其定义别名的规范就是对应包装类的类名首字母变为小写 -->
+	<typeAliases>
+		<package name="com.myapp.crud.bean" />
+	</typeAliases>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!--分页参数合理化  当请求为小于0的页数，始终发送0页请求；请求大于总页数，发送最大页数请求。
+			避免代码逻辑出错时，页面显示异常-->
+			<property name="reasonable" value="true" />
+		</plugin>
+	</plugins>
+</configuration> 
